@@ -1,0 +1,30 @@
+$justify: (
+    "sa": space-around,
+    "no": none
+);
+
+.Grid{
+
+    &_container{
+        display: flex;
+        flex-wrap: wrap;
+    };
+
+    &_item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center
+    };
+
+    @each $name, $value in $justify {
+        &_justify_#{$name}{
+            justify-content: $value;
+        }
+    }
+    @for $i from 1 to 11 {
+        &_cols_#{$i} {
+            flex-basis: $i/10 * 100%;
+        };
+    };
+
+}
